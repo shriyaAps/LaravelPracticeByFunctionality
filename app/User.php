@@ -37,4 +37,17 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->notify(new ResetPasswordNotification($token));
     }
+    /**
+     * Get the phone record associated with the user.
+     */
+    public function phone()
+    {
+        return $this->hasOne('App\Phone');
+    }
+    /**
+     * Get the order record associated with the user.
+     */
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
 }
