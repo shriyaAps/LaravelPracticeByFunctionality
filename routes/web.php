@@ -17,4 +17,6 @@ Route::get('/', function () {
 Auth::routes(['verify'=>true]);
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 Route::get('/posts', 'PostController@index')->name('posts')->middleware('verified');
-
+Route::get('product/create', 'ProductController@create')->name('product.create');
+Route::get('product/{product}', 'ProductController@show')->name('product.show');
+Route::get('category/product/{product}', 'ProductController@removeCategory')->name('category.product.delete');
